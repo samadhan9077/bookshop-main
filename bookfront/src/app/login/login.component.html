@@ -1,0 +1,25 @@
+<div class="container">
+    <form (ngSubmit)="submitdata()">
+        <h1 class="display-4" style="text-align: center;">Login here</h1>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" name="em" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="em" #em="ngModel" [(ngModel)]="s.email" required>
+            <div *ngIf="!em.valid" style="color: red;">
+                <div *ngIf="em.errors?.['required']">
+                    Email is required
+                </div>
+            </div>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="ps" class="form-control" id="exampleInputPassword1" name="ps" #ps="ngModel" [(ngModel)]="s.password" required>
+            <div *ngIf="!ps.valid" style="color: red;">
+                <div *ngIf="ps.errors?.['required']">
+                    Password is required
+                </div>
+            </div>
+        </div>
+        <button type="submit" name="btnsub" class="btn btn-primary">Submit</button>
+    </form>
+</div>
